@@ -1,0 +1,61 @@
+{% extends 'main.html' %}
+{% block block1 %}
+<div class="login px-sm-4 mx-auto mw-100">
+
+
+<article>
+        <header class="section background-dark">
+          <div class="line">        
+            <br><br>
+            <div class="container">
+<div class="table-responsive" >
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>bookno</th>
+        <th>bookname</th>
+        <th>author</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    <form action="{% url 'viewbookuserform' %}" method="post">
+    {% csrf_token %}
+      <tr>
+        <td><input name="bookno"type="text" style="border:none;background:none" value="{{i.bookno}}" readonly></td>
+        <td><input name="bookname"type="text" style="border:none;background:none" value="{{i.bookname}}" readonly></td>
+        <td><input name="author"type="text" style="border:none;background:none" value="{{i.author}}" readonly></td>
+        {% if i.available is 0 %}
+        <td><input class="btn btn-secondary" type='submit' value='out of stock' name="out" disabled></td>
+        {% else %}
+        <td><input class="btn btn-success" type='submit' value='Getbook' name="getbook"></td>
+        {% endif %}
+      </tr>
+      </form>
+        
+        
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <br><br>
+  <h5>or search your book here:<h5>
+  <form action="{% url 'searchbookuser' %}" method="post">
+  {% csrf_token %}
+  <input type="search" name='bookname'>
+  <input type="submit">
+
+
+  <br><br><br>
+
+</div>
+</div>
+
+          
+             </div>  
+        </header>
+        </article>
+		</div>
+        
+{% endblock block1 %}

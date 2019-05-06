@@ -1,0 +1,58 @@
+{% extends 'main.html' %}
+{% block block1 %}
+<div class="login px-sm-4 mx-auto mw-100">
+
+
+<article>
+        <header class="section background-dark">
+          <div class="line">        
+            {% comment %} <h1 class="text-white margin-top-bottom-40 text-size-60 text-line-height-1">Edit Profile</h1>
+            <p class="margin-bottom-0 text-size-16">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.<br>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+          {% endcomment %}
+          <div class="container" >
+<div class="table-responsive" >
+ <table class="table table-bordered" style="width: 100%">
+    <thead>
+      <tr>
+        <th>bookno</th>
+        <th>bookname</th>
+        <th>author</th>
+        <th>status</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in obj%}
+    <form action="{% url 'issuebooklibform' %}" method="post">
+    {% csrf_token %}
+      <tr>
+        <td><input name="bookno"type="text" style="border:none;background:none" value="{{i.idbook.bookno}}" readonly></td>
+        <td><input name="bookname"type="text" style="border:none;background:none" value="{{i.idbook.bookname}}" readonly></td>
+        <td><input name="available"type="text" style="border:none;background:none" value="{{i.idbook.author}}" readonly></td>
+        {% if i.status is 1 %}
+        <td><input class="btn btn-secondary" type='submit' value='pending' name="out" disabled></td>
+        {% elif i.status is 2 %}
+        <td><input class="btn btn-success" type='submit' value='accepted' name="out" disabled></td>
+        {% elif i.status is 0%}
+        <td><input class="btn btn-danger" type='submit' value='rejected' name="out" disabled></td>
+        {% endif %}
+      </tr>
+      </form>
+        
+        
+        </td>
+      </tr>
+      </form>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+             </div>  
+        </header>
+        </article>
+		</div>
+{% endblock block1 %}
