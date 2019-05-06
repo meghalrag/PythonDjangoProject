@@ -1,0 +1,42 @@
+{% extends 'userpagelib.html' %}
+{% block userblock %}
+<div class="container">
+<div class="table-responsive" >
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>bookno</th>
+        <th>bookname</th>
+        <th>author</th>
+        <th>quantity</th>
+        <th>available</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in obj%}
+    <form action="{% url 'viewbooklibform' %}" method="post">
+    {% csrf_token %}
+      <tr>
+        <td><input name="bookno"type="text" style="border:none;background:none" value="{{i.bookno}}" readonly></td>
+        <td><input name="bookname"type="text" style="border:none;background:none" value="{{i.bookname}}" readonly></td>
+        <td><input name="author"type="text" style="border:none;background:none" value="{{i.author}}" readonly></td>
+        <td><input name="quantity"type="text" style="width:50px;border:none;background:none" value="{{i.quantity}}" readonly></td>
+        <td><input name="available"type="text" style="width:50px;border:none;background:none" value="{{i.available}}" readonly></td>
+        <td><input class="btn btn-danger" type='submit' value='delete' name="delete">
+        <input class="btn btn-info" type='submit' value='update' name="update"></td>
+      </tr>
+      </form>
+        
+        
+        </td>
+      </tr>
+      </form>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+
+</div>
+</div>
+{% endblock userblock %}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<title>Librarian Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+  </head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+<body>
+
+<div style="background-color:#b5fda3;"class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+  <a style="background-color:#04f7f3;" href="{% url 'homelib' %}" class="w3-bar-item w3-button" id="h1"><b style="">Home</b></a>
+    <a style="background-color:#04f7f3;"href="{% url 'addbooklib' %}" class="w3-bar-item w3-button" id="a1"><b >Add Books</b></a>
+  <a style="background-color:#04f7f3;"href="{% url 'viewbooklib' %}" class="w3-bar-item w3-button" id="a2" style=""><b>View Books</b></a>
+  <a style="background-color:#04f7f3;"href="{% url 'issuebooklib' %}" class="w3-bar-item w3-button" id="a3"><b>Issue Books</b></a>
+    <a style="background-color:#04f7f3;"href="{% url 'pendingbooklib' %}" class="w3-bar-item w3-button"><b>pending books</b></a>
+    <a style="background-color:#04f7f3;"href="{% url 'rejectedbooklib' %}" class="w3-bar-item w3-button"><b>Rejected books</b></a>
+    <a style="background-color:#04f7f3;"href="{% url 'homelib' %}" class="w3-bar-item w3-button"><b>Payments</b></a>
+    <a style="background-color:#04f7f3;"href="{% url 'homelib' %}" class="w3-bar-item w3-button"><b>Return/Renew</b></a>
+  <a style="background-color:#04f7f3;"href="{% url 'logoutlib' %}" class="w3-bar-item w3-button" id="lout"><b>LOGOUT</b></a>
+</div>
+
+<div class="w3-main" style="margin-left:200px;">
+<div class="w3-teal">
+  <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+  <div class="w3-container" style="background-color:#f3aeed;"><br><br><br>
+    <h1>Welcome {{username}}</h1>
+  </div>
+</div>
+
+<div class="w3-container" id="w8" style="padding-bottom:460px; background-color:rgb(238, 238, 186)" margin-top:100px;">
+  <br>
+  {% block userblock %}
+  
+    {% endblock %}
+</div>
+<script>
+
+
+$(document).ready(
+
+function(){
+});
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>

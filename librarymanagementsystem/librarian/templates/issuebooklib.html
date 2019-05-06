@@ -1,0 +1,50 @@
+{% extends 'userpagelib.html' %}
+{% block userblock %}
+<div class="container" >
+<div class="table-responsive" >
+ <table class="table table-bordered" style="width: 100%">
+    <thead>
+      <tr>
+        <th>bookno</th>
+        <th>bookname</th>
+        <th>user id</th>
+        <th>user name</th>
+        <th>user phoneno</th>
+        <th >available</th>
+        <th>datefrom</th>
+        <th>dateto</th>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAction</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in obj%}
+    {% if i.status is 1 %}
+    <form action="{% url 'issuebooklibform' %}" method="post">
+    {% csrf_token %}
+      <tr>
+        <td><input name="bookno"type="text" style="border:none;background:none" value="{{i.idbook.bookno}}" readonly></td>
+        <td><input name="bookname"type="text" style="border:none;background:none" value="{{i.idbook.bookname}}" readonly></td>
+        <td><input name="userid"type="text" style="border:none;background:none" value="{{i.idreg.id}}" readonly></td>
+        <td><input name="username"type="text" style="border:none;background:none" value="{{i.idreg.name}}" readonly></td>
+        <td><input name="userphone"type="text" style="border:none;background:none" value="{{i.idreg.phone}}" readonly></td>
+        <td><input name="available"type="text" style="width:50px;border:none;background:none" value="{{i.idbook.available}}" readonly></td>
+        <td><input name="datefrom"type="text" style="border:none;background:none" value="{{i.datefrom}}" readonly></td>
+        <td><input name="dateto"type="date" ></td>
+        <td><input class="btn btn-success" type='submit' value='accept' name="accept">
+        <input class="btn btn-danger" type='submit' value='reject' name="reject"></td>
+      </tr>
+      </form>
+        
+        
+        </td>
+      </tr>
+      </form>
+      {% endif %}
+      {% endfor %}
+      
+    </tbody>
+  </table>
+
+</div>
+</div>
+{% endblock userblock %}

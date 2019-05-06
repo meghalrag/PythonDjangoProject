@@ -1,0 +1,39 @@
+{% extends 'userpagelib.html' %}
+{% block userblock %}
+<div class="container">
+<div class="table-responsive" >
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>bookno</th>
+        <th>bookname</th>
+        <th>author</th>
+        <th>quantity</th>
+        <th>available</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <form action="{% url 'updatebooklibform' %}" method="post">
+    {% csrf_token %}
+      <tr>
+        <td><input name="bookno"type="text" style="background:none;" value="{{obj.bookno}}" readonly></td>
+        <td><input name="bookname"type="text"  value="{{obj.bookname}}" ></td>
+        <td><input name="author"type="text"  value="{{obj.author}}"></td>
+        <td><input name="quantity"type="text" style="width:50px;" value="{{obj.quantity}}"></td>
+        <td><input name="available"type="text" style="width:50px;" value="{{obj.available}}"></td>
+        <td><input class="btn btn-info" type='submit' value='update' name="update"></td>
+      </tr>
+      </form>
+        
+        
+        </td>
+      </tr>
+      </form>
+      
+    </tbody>
+  </table>
+
+</div>
+</div>
+{% endblock userblock %}

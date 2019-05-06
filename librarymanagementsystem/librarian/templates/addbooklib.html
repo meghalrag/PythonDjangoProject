@@ -1,0 +1,26 @@
+{% extends 'userpagelib.html' %}
+{% block userblock %}
+<div class="container">
+  <form action="{% url 'addbooklibform' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="usr">bookno</label>
+      <input name="bookno" type="text" class="form-control" id="usr">
+    </div>
+    <div class="form-group">
+      <label for="usr">bookname</label>
+      <input name="bookname" type="text" class="form-control" id="usr">
+    </div>
+    <div class="form-group">
+      <label for="usr">author</label>
+      <input name="author" type="text" class="form-control" id="usr">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Quantity:</label>
+      <input name="quantity" type="text" class="form-control" id="pwd">
+    </div>
+      <br>
+      <input type="submit" class=" btn btn-success" >
+  </form>
+</div>
+{% endblock userblock %}
