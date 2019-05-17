@@ -1,0 +1,47 @@
+{% extends 'userpageadmin.html' %}
+{% block userblock %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'bootstrap-min.css' %}">
+
+
+  <div class="container">
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>email</th>
+        <th>password</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in obj%}
+    {% if i.status is 1 %}
+    <form action="{% url 'deleteusersform' %}" method="post" onsubmit="return myFunction();">
+    {% csrf_token %}
+      <tr>
+        <td><input name="email"type="text" style="border:none;background:none" value="{{i.email}}" readonly></td>
+        <td><input type="text" style="border:none;background:none" value={{i.password}} name={{i.password}} readonly></td>
+        <td><input class="btn btn-danger" type='submit'value='delete'></td>
+      </tr>
+      </form>
+    <script>
+      function myFunction() {
+      if (confirm("Are you sure??!")) {
+          return true;
+      } 
+      else {
+          return false;
+        }
+
+      }
+    </script>
+      {% endif %}
+      {% endfor %}
+      
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock %}
