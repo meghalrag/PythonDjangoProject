@@ -16,13 +16,16 @@ def registerfn(request):
             email=ff.cleaned_data['email']
             passw=ff.cleaned_data['passw']
             cpassw=ff.cleaned_data['cpassw']
-            obj=login(email=email,password=passw,status=1)
-            obj.save()
-            obj=login.objects.get(email=email)
-            obj1=register(name=name,fkidlog=obj)
-            obj1.save()
+            if passw==cpassw:
+                obj=login(email=email,password=passw,status=1)
+                obj.save()
+                obj=login.objects.get(email=email)
+                obj1=register(name=name,fkidlog=obj)
+                obj1.save()
             # return HttpResponse(name)
-            return render(request,'message.html',{'msg':'successfully registered'})
+                return render(request,'message.html',{'msg':'successfully registered login to continue'})
+            else:
+                return render(request,'message.html',{'msg1':'false'})
         else:
             # return render(request,'register.html',{})
             return HttpResponseRedirect('guest/regerror/#popup4')

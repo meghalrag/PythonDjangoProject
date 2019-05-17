@@ -1,5 +1,10 @@
 {% extends 'index123.html' %}
 {% block message %}
-<li class="list-group-item list-group-item-success">{{msg}} login to continue</li>
+<li class="list-group-item list-group-item-success">{{msg}}</li>
+{% if 'false' in msg1 %}
+<script>
+alert('password not match try again');
+</script>
+{% endif %}
 {% comment %} <li class="list-group-item list-group-item-danger">{{msg1}}</li> {% endcomment %}
 {% endblock message %}
