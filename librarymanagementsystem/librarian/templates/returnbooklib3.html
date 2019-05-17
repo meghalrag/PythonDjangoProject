@@ -1,0 +1,47 @@
+{% extends 'userpagelib.html' %}
+{% block userblock %}
+
+<style>
+.card {
+padding:40px;
+margin-left:100px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 70%;
+  
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+</style>
+<script>
+function myFuncofpay() {
+    if(confirm('are you sure?')){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
+
+</script>
+<div class="card" >
+  <div class="container" style="padding: 6px 15px;">
+    <form action="{% url 'returnbooklib3form' %}" method="POST" onsubmit="return myFuncofpay();">
+        {% csrf_token %}
+    <h5>Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{li.3}}</h5> <br>
+    <h5>Book Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{li.2}}</h5><br>
+    <h5>Date From:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{li.4}}</h5><br>
+    <h5>Date To:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{li.5}}</h5><br>
+    <h5>Return Date:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{li.6}}</h5><br>
+    <h5>Duration:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{li.8}}</h5><br>
+    
+    <h4><b style="color:red">Fine-----------------INR {{li.7}}/-</b></h4><br><br>
+    <input class="btn btn-info" type="submit"> 
+</form>
+  </div>
+</div>
+{% endblock userblock %}

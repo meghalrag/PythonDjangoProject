@@ -1,0 +1,14 @@
+{% extends 'userpagelib.html' %}
+{% block userblock %}
+<div class="container">
+  <form action="{% url 'returnbooklib1form' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="pwd">enter user name:</label>
+      <input name="uname" type="text" class="form-control" id="pwd">
+    </div>
+      <br>
+      <input type="submit" class=" btn btn-success" >
+  </form>
+</div>
+{% endblock userblock %}

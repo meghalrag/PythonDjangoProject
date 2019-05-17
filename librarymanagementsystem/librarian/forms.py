@@ -10,3 +10,5 @@ class updatebook(forms.Form):
     author=forms.CharField(max_length=50)
     quantity=forms.IntegerField()
     available=forms.IntegerField()
+class returnclass(forms.Form):
+    uname=forms.CharField(max_length=50) 

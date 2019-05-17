@@ -4,26 +4,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <head>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> {% endcomment %}
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> {% endcomment %}
 
 
 
 <!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+{% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> {% endcomment %}
 
 <!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% comment %} <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> {% endcomment %}
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  {% endcomment %}
 
 
   </head>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+{% comment %} <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> {% endcomment %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'w3.css' %}">
+<link rel="stylesheet" href={% static 'bootstrap-min.css' %}
 
 
 <body>
@@ -37,7 +39,7 @@
     <a style="background-color:#04f7f3;"href="{% url 'pendingbooklib' %}" class="w3-bar-item w3-button"><b>pending books</b></a>
     <a style="background-color:#04f7f3;"href="{% url 'rejectedbooklib' %}" class="w3-bar-item w3-button"><b>Rejected books</b></a>
     <a style="background-color:#04f7f3;"href="{% url 'homelib' %}" class="w3-bar-item w3-button"><b>Payments</b></a>
-    <a style="background-color:#04f7f3;"href="{% url 'homelib' %}" class="w3-bar-item w3-button"><b>Return/Renew</b></a>
+    <a style="background-color:#04f7f3;"href="{% url 'returnbooklib1' %}" class="w3-bar-item w3-button"><b>Return/Renew</b></a>
   <a style="background-color:#04f7f3;"href="{% url 'logoutlib' %}" class="w3-bar-item w3-button" id="lout"><b>LOGOUT</b></a>
 </div>
 

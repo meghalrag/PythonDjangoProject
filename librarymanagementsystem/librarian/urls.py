@@ -13,7 +13,12 @@ urlpatterns = [
     url(r'updatebooklibform/',updatebooklibform,name="updatebooklibform"),
     url(r'issuebooklib/',issuebooklib,name="issuebooklib"),
     url(r'issuebooklibform/',issuebooklibform,name="issuebooklibform"),
+    url(r'issuebooklibformreject/',issuebooklibformreject,name="issuebooklibformreject"),
     url(r'rejectedbooklib/',rejectedbooklib,name="rejectedbooklib"),
     url(r'pendingbooklib/',pendingbooklib,name="pendingbooklib"),
+    url(r'returnbooklib1/',returnbooklib1,name="returnbooklib1"),
+    url(r'returnbooklib1form/',returnbooklib1form,name="returnbooklib1form"),
+    url(r'returnbooklib2form/',returnbooklib2form,name="returnbooklib2form"),
+    url(r'returnbooklib3form/',returnbooklib3form,name="returnbooklib3form"),
     url(r'logoutlib/',logoutlib,name="logoutlib"),
 ]

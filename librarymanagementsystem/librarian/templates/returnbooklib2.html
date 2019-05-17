@@ -1,0 +1,49 @@
+{% extends 'userpagelib.html' %}
+{% block userblock %}
+<div class="container" >
+<div class="table-responsive" >
+ <table class="table table-bordered" style="width: 100%">
+    <thead>
+      <tr>
+        <th>bookno</th>
+        <th>bookname</th>
+        <th>user id</th>
+        <th>user name</th>
+        <th>user phoneno</th>
+        <th>datefrom</th>
+        <th>dateto</th>
+        <th>return date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in obj%}
+    {% if i.status is 2 %}
+    <form action="{% url 'returnbooklib2form' %}" method="post">
+    {% csrf_token %}
+      <tr>
+        <td>{{i.idbook.bookno}}<input name="bookno"type="hidden" style="border:none;background:none" value="{{i.idbook.bookno}}" readonly></td>
+        <td>{{i.idbook.bookname}}<input name="bookname"type="hidden" style="border:none;background:none" value="{{i.idbook.bookname}}" readonly></td>
+        <td>{{i.idreg.id}}<input name="userid"type="hidden" style="border:none;background:none" value="{{i.idreg.id}}" readonly></td>
+        <td>{{i.idreg.name}}<input name="username"type="hidden" style="border:none;background:none" value="{{i.idreg.name}}" readonly></td>
+        <td>{{i.idreg.phone}}<input name="userphone"type="hidden" style="border:none;background:none" value="{{i.idreg.phone}}" readonly></td>
+        <td>{{i.datefrom}}<input name="datefrom"type="hidden" style="border:none;background:none" value="{{i.datefrom}}" readonly></td>
+        <td>{{i.dateto}}<input name="dateto"type="hidden" style="border:none;background:none" value="{{i.dateto}}" readonly></td>
+        <td><input name="returndate"type="date" required></td>
+        <td><input class="btn btn-success" type='submit' value='return' name="accept"></td>
+      </tr>
+      </form>
+        
+        
+        </td>
+      </tr>
+      </form>
+      {% endif %}
+      {% endfor %}
+      
+    </tbody>
+  </table>
+
+</div>
+</div>
+{% endblock userblock %}

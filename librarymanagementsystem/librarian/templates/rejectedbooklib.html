@@ -19,7 +19,7 @@
     <tbody>
     {% for i in obj%}
     {% if i.status is 0 %}
-    <form action="{% url 'issuebooklibform' %}" method="post">
+    <form action="{% url 'issuebooklibformreject' %}" method="post">
     {% csrf_token %}
       <tr>
         <td><input name="bookno"type="text" style="border:none;background:none" value="{{i.idbook.bookno}}" readonly></td>
