@@ -75,18 +75,25 @@ def viewbookuserform(request):
                         bookno=request.POST['bookno']
                         obj=register.objects.get(fkidlog=request.session['iduser'])
                         obj1=viewbook.objects.get(bookno=bookno)
-                        obj2=issuebook.objects.all()
-                        for i in obj2:
-                                if i.idreg==obj and i.idbook==obj1:
-                                        if i.status==0:
-                                                return HttpResponse('u cannot request this book')
-                                        if i.status!=3:
-                                                return HttpResponse('u r already requested')
-                                        
-                        obj2=issuebook(idreg=obj,idbook=obj1,status=1)
-                        obj2.save()
-                # return HttpResponse(obj2.datefrom)
-                return render(request,'messageuser.html',{'msg':'Your request submiited wait to accept librarian','username':request.session['unameuser']})
+                        if obj.phone==None:
+                                return render(request,'index.html',{'obj':obj})
+                        elif obj1.available==0:
+                                return render(request,'messageuser.html',{'msg1':'sorry!!!book is unavailable'})
+                        else:
+                                obj2=issuebook.objects.all()
+                                for i in obj2:
+                                        if i.idreg==obj and i.idbook==obj1:
+                                                if i.status==0:
+                                                        return HttpResponse('u cannot request this book')
+                                                if i.status!=3:
+                                                        return HttpResponse('u r already requested')
+                                                
+                                obj2=issuebook(idreg=obj,idbook=obj1,status=1)
+                                obj2.save()
+                                obj1.available-=1
+                                obj1.save()
+                                # return HttpResponse(obj2.datefrom)
+                                return render(request,'messageuser.html',{'msg':'Your request submiited wait to accept librarian','username':request.session['unameuser']})
         else:
             return HttpResponse('your session is expired.please log in again')
 def requestedbookuser(request):
