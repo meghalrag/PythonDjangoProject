@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eleganter - New Amazing HTML5 Template</title>
+    <title>Welcome To Digital Library</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -44,7 +44,8 @@
         <div class="top-nav s-12 l-10" style="color:white">
           <p class="nav-text"></p>
           <ul class="right chevron">
-            <li><a><b style="font-size:20px"><i>Welcome {{obj.name}}</i></b></a></li>
+            <li><a><i style="font-size:20px;color: white;
+  text-shadow: 1px 1px 2px green, 0 0 10px cyan, 0 0 10px cyan;"><i>Welcome {{obj.name}}</i></b></a></li>
             {% if obj.address is not null%}
             <li><img class="rounded-circle" src="{{obj.photo.url}}" style="width:60px; height:50px; margin-top:10px;margin-bottom:10px;" alt=""></li>
             {% endif %}
@@ -76,7 +77,7 @@
         </div>
       </nav>
     </header>
-    
+    </i>
     <!-- MAIN -->
     <main role="main">    
       <!-- Main Header -->
@@ -84,22 +85,28 @@
         <div class="carousel-default owl-carousel carousel-main carousel-nav-white background-dark text-center">
           <div class="item">
             <div class="s-12">
-              <img src="{% static 'img/h2.jpg' %}" alt="">
+              <img src="{% static 'img/libraryhome6.jpg' %}" alt="">
               <div class="carousel-content">
                 <div class="content-center-vertical line">
                  {% if obj.address is not null%}
-            <img class="rounded-circle" src="{{obj.photo.url}}" style="width:200px; height:200px; margin-left:470px;margin-bottom:10px;" alt="">
+            <img class="img-thumbnail" src="{{obj.photo.url}}" style="width:150px; height:180px; margin-left:470px;margin-bottom:10px;" alt="">
             
                   <div class="margin-top-bottom-80">
                     <!-- Title -->
                     {% else %}
-                    <li class="list-group-item list-group-item-danger">Your profile is not updated Please Update</li>
+                    <p id="p1" style="padding:15px;
+background-color:hsl(200,0%,50%);
+box-shadow: 7px 8px darkcyan;
+color: white;
+text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px darkred;">Your Profile is not Updated please Update!!!</p>
                     {% endif %}
-                    <h1 class="text-white margin-bottom-30 text-size-60 text-m-size-30 text-line-height-1">Your Digital Library is here</h1>
+                    <h1 class="text-white margin-bottom-30 text-size-60 text-m-size-30 text-line-height-1"style="color: white;
+  text-shadow: 1px 1px 2px indigo, 0 0 40px blue, 0 0 10px blue;">Your Digital Library is here</h1>
                     <div class="s-12 m-10 l-8 center"><p class="text-white text-size-14 margin-bottom-40">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. Iriure dolor in hendrerit duis autem vel eum in vulputate velit esse molestie consequat.</p></div>
                     <div class="line">
                       <div class="s-12 m-12 l-3 center">
-                        <a class="button button-white-stroke s-12" href="/">Get Started Now</a>
+                        <a class="button button-white-stroke s-12" href="/"><p style="color: white;
+  text-shadow: 1px 1px 2px red, 0 0 40px blue, 0 0 10px red;">Get Started Now</p></a>
                       </div>       
                     </div>  
                   </div>

@@ -6,7 +6,19 @@
 <article>
         <header class="section background-dark">
           <div class="line">        
+            <br>
+            <div style="margin-left:850px;">
+            <h5>search your book here:<h5>
+            <form action="{% url 'searchbookuser' %}" method="post" >
+            {% csrf_token %}
+            <input style="display:inline-block;float:left;" type="search" name='bookname'>
+            <input style="display:inline-block;float:right;" type="submit" value="submit">
+            <font>{{msg}}</font>
             <br><br>
+            </form>
+            </div>
+    <br>
+
             <div class="container">
 <div class="table-responsive" >
  <table class="table table-bordered">
@@ -20,7 +32,7 @@
     </thead>
     <tbody>
     {% for i in obj%}
-    <form action="{% url 'viewbookuserform' %}" method="post">
+    <form action="{% url 'viewbookuserform' %}" method="post" onsubmit="return myFunction();">
     {% csrf_token %}
       <tr>
         <td><input name="bookno"type="text" style="border:none;background:none" value="{{i.bookno}}" readonly></td>
@@ -29,27 +41,31 @@
         {% if i.available is 0 %}
         <td><input class="btn btn-secondary" type='submit' value='out of stock' name="out" disabled></td>
         {% else %}
-        <td><input class="btn btn-success" type='submit' value='Getbook' name="getbook"></td>
+        <td><input type="submit" style="width:90px;height:40px;" class="btn btn-success" value='Getbook'></td>
+        
         {% endif %}
       </tr>
       </form>
-        
+         <script>
+        function myFunction() {
+          if (confirm("Are you sure??!")) {
+            return true;
+          } else {
+            return false;
+          }
+
+        }
+        </script> 
         
         </td>
       </tr>
       {% endfor %}
       
+      
     </tbody>
   </table>
   <br><br>
-  <h5>or search your book here:<h5>
-  <form action="{% url 'searchbookuser' %}" method="post">
-  {% csrf_token %}
-  <input type="search" name='bookname'>&nbsp&nbsp&nbsp<font color="black">{{msg}}</font><br><br>
-  <input type="submit">
-
-
-  <br><br><br>
+  
 
 </div>
 </div>

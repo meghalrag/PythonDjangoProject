@@ -16,7 +16,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <div class="panel-body">
   <h4>{{msg}}</h4>
-  <h2>Edit Profile</h2>
+  <h2 style="color: white;
+  text-shadow: 1px 1px 2px green, 0 0 10px blue, 0 0 10px darkblue;">Edit Profile</h2>
   <form action="{% url 'editprofileuserform'%}" method="post" enctype = "multipart/form-data">
   {% csrf_token %}
     <div class="form-group">
@@ -25,7 +26,7 @@
     </div>
     <div class="form-group">
       <label for="phone">phone number:</label>
-      <input type="text" class="form-control" id="phone" placeholder="Enter Phone no:" name="phone" required>
+      <input type="text" class="form-control" id="phone" placeholder="Enter Phone no:" name="phone" maxlength="10" required>
     </div>
     <div class="form-group">
       <label for="pwd">Choose Your Profile Pic:</label><br>

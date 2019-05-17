@@ -40,11 +40,11 @@
     </tbody>
   </table>
   <br><br>
-  <h5>or search your book here:<h5>
+  <h5>search your book here:<h5>
   <form action="{% url 'searchbookuser' %}" method="post">
   {% csrf_token %}
   <input type="search" name='bookname'>
-  <input type="submit">
+  <input type="submit" value="submit">
 
 
   <br><br><br>
